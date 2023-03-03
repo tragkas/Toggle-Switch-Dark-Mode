@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dark Mode Toggle</title>
+  <style>
+    /* Default light mode styles */
+    body {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #333333;
+      color: #ffffff;
+    }
+    
+    /* Toggle switch styles */
+    .toggle-switch {
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin: 10px;
+      position: relative;
+    }
+    
+    .toggle-switch input {
+      display: none;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #cccccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+    
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: #ffffff;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .toggle-slider {
+      background-color: #2196F3;
+    }
+    
+    input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-switch">
+    <input type="checkbox" id="toggle" onclick="toggleDarkMode()" />
+    <label class="toggle-slider" for="toggle"></label>
+  </div>
+  
+  <h1>Dark mode toggle example</h1>
+  <p>This is an example of a simple toggle switch for dark mode.</p>
+  
+  <script>
+    function toggleDarkMode() {
+      const body = document.querySelector('body');
+      body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
